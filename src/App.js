@@ -4,7 +4,9 @@
 //import { useDispatch } from 'react-redux';
 //import { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
-import MainPage from './components/pages/MainPage';
+import MainPage from './components/pages/MainPage/MainPage';
+import Header from './components/views/Header/Header';
+import Footer from './components/views/Footer/Footer';
 
 const App = () => {
 
@@ -13,12 +15,11 @@ const App = () => {
 
   return (
     <div>
-      <header>
-        <h2>Waiter App</h2>
-      </header>
+      <Header />
       <Container>
         <MainPage />
       </Container>
+      <Footer />
     </div>
   );
 }
