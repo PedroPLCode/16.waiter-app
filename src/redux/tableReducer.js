@@ -1,3 +1,21 @@
+//selectors
+
+// actions
+const createActionName = actionName => `app/tables/${actionName}`;
+
+// action creators
+const tablesReducer = (statePart = [], action) => {
+  switch (action.type) {
+    default:
+      return statePart;
+  };
+};
+export default tablesReducer;
+
+
+/*
+
+
 import shortid from 'shortid';
 
 export const getAllBooks = (state) => state.books;
@@ -57,3 +75,5 @@ const booksReducer = (state, action) => {
 };
 
 export default booksReducer;
+
+*/
