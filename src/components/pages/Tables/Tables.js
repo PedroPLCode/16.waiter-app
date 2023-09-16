@@ -1,12 +1,11 @@
 //import styles from './List.module.scss';
-//import { useSelector } from 'react-redux';
-//import { getAllColumns } from '../../redux/store';
 import SingleTable from "../SingleTable/SingleTable";
+import { getAllTables } from '../../redux/store';
+import { useSelector } from 'react-redux';
 
 const Tables = () => {
 
-  //const columns = useSelector(getAllColumns);
-  const tables = []
+  const tables = useSelector(getAllTables);
 
     return (
       <div>

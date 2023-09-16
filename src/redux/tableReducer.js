@@ -1,54 +1,38 @@
+import shortid from 'shortid';
+
 //selectors
+export const getAllTables = (state) => state.tables;
 
 // actions
 const createActionName = actionName => `app/tables/${actionName}`;
+const REMOVE_TABLE = createActionName("REMOVE_TABLE");
+const ADD_TABLE = createActionName("ADD_TABLE");
+const UPDATE_TABLE = createActionName("UPDATE_TABLE");
 
-// action creators
-const tablesReducer = (statePart = [], action) => {
-  switch (action.type) {
-    default:
-      return statePart;
-  };
-};
-export default tablesReducer;
-
-
-/*
-
-
-import shortid from 'shortid';
-
-export const getAllBooks = (state) => state.books;
-
-const createActionName = name => `app/books/${name}`;
-const REMOVE_BOOK = createActionName("REMOVE_BOOK");
-const ADD_BOOK = createActionName("ADD_BOOK");
-const UPDATE_BOOKS = createActionName("UPDATE_BOOKS");
-
-export const addBook = payload => ({ type: ADD_BOOK, payload });
-export const removeBook = payload => ({ type: REMOVE_BOOK, payload });
-export const updateBooks = payload => ({ type: UPDATE_BOOKS, payload });
-export const fetchBooks = () => {
+export const addTable = payload => ({ type: ADD_TABLE, payload });
+export const removeTable = payload => ({ type: REMOVE_TABLE, payload });
+export const updateTables = payload => ({ type: UPDATE_TABLE, payload });
+export const fetchTables = () => {
   return (dispatch) => {
-    fetch('http://localhost:3131/books')
+    fetch('http://localhost:3131/api/tables')
       .then(response => response.json())
-      .then(books => dispatch(updateBooks(books)));
+      .then(tables => dispatch(updateTables(tables)));
   }
 };
-export const addBookRequest = newBook => {
+export const addTableRequest = newTable => {
   return (dispatch) => {
     const options = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newBook),
+      body: JSON.stringify(newTable),
     };
-    fetch(`http://localhost:3131/books`, options)
-      .then(() => dispatch(addBook(newBook)))
+    fetch(`http://localhost:3131/api/tables`, options)
+      .then(() => dispatch(addTable(newTable)))
   }
 };
-export const removeBookRequest = bookId => {
+export const removeTableRequest = tableId => {
   return (dispatch) => {
     const options = {
       method: 'DELETE',
@@ -56,24 +40,22 @@ export const removeBookRequest = bookId => {
         'Content-Type': 'application/json'
       },
     };
-    fetch(`http://localhost:3131/books/${bookId.toString()}`, options)
-      .then(() => dispatch(removeBook(bookId)))
+    fetch(`http://localhost:3131/api/tables/${tableId.toString()}`, options)
+      .then(() => dispatch(removeTable(tableId)))
   }
 };
 
-const booksReducer = (state, action) => {
+// action creators
+const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
-    case ADD_BOOK: 
-      return { ...state, books: [...state.books, { ...action.payload, id: shortid() }]};
-    case REMOVE_BOOK: 
-      return { ...state, books: [...state.books.filter(book => action.payload !== book.id)]};
-    case UPDATE_BOOKS:
-      return { ...state, books: action.payload};
+    case ADD_TABLE: 
+      return { ...statePart, tables: [...statePart.tables, { ...action.payload, id: shortid() }]};
+    case REMOVE_TABLE: 
+      return { ...statePart, tables: [...statePart.tables.filter(table => action.payload !== table.id)]};
+    case UPDATE_TABLE:
+      return { ...statePart, tables: action.payload};
     default:
-      return state;
-  }
+      return statePart;
+  };
 };
-
-export default booksReducer;
-
-*/
+export default tablesReducer;

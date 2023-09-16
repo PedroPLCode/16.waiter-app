@@ -6,13 +6,22 @@ const SingleTable = props => {
 
   //const dispatch = useDispatch();
   
-  const handleClick = (cardId) => {
+  const handleClick = (event, tableId) => {
+    event.preventDefault();
+    console.log(tableId);
     //dispatch({ type: 'REMOVE_CARD', payload: { cardId } });
     //dispatch(removeCard(cardId));
   }
 
   return (
-    <li>{props.title}<button onClick={handleClick(props.id)}>X</button></li>
+    <li>
+      <p>Id: {props.id}</p>
+      <p>Status: {props.status}</p>
+      <p>peopleAmount: {props.peopleAmount}</p>
+      <p>maxPeopleAmount: {props.maxPeopleAmount}</p>
+      <p>bill: {props.bill}</p>
+      <button onClick={event => handleClick(event, props.id)}>BUTTON</button>
+    </li>
   );
 };
 
