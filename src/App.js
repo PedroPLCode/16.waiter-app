@@ -10,6 +10,7 @@ const App = () => {
 
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchTables()), [dispatch]);
+  //dispatch(fetchTables());
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import shortid from 'shortid';
+//import shortid from 'shortid';
 
 //selectors
 export const getAllTables = (state) => state.tables;
@@ -49,11 +49,11 @@ export const removeTableRequest = tableId => {
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_TABLE: 
-      return { ...statePart, tables: [...statePart.tables, { ...action.payload, id: shortid() }]};
+      return { ...statePart, tables: [...statePart.tables, { ...action.payload }]};
     case REMOVE_TABLE: 
       return { ...statePart, tables: [...statePart.tables.filter(table => action.payload !== table.id)]};
     case UPDATE_TABLE:
-      return { ...statePart, tables: [...statePart.tables, [action.payload.id], action.payload]}; //zle
+      return { ...statePart, tables: action.payload};
     default:
       return statePart;
   };
