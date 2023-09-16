@@ -53,7 +53,7 @@ const tablesReducer = (statePart = [], action) => {
     case REMOVE_TABLE: 
       return { ...statePart, tables: [...statePart.tables.filter(table => action.payload !== table.id)]};
     case UPDATE_TABLE:
-      return { ...statePart, tables: [...statePart.tables, action.payload]}; //zle
+      return { ...statePart, tables: [...statePart.tables, [action.payload.id], action.payload]}; //zle
     default:
       return statePart;
   };

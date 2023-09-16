@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { removeTable, updateTables } from '../../../redux/tableReducer';
 
-const SingleTable = props => {
+const SingleTableOverview = props => {
 
   const [id, setId] = useState(props.id); 
   const [status, setStatus] = useState(props.status); 
@@ -39,4 +39,4 @@ const SingleTable = props => {
   );
 };
 
-export default SingleTable;
+export default SingleTableOverview;
