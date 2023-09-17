@@ -10,14 +10,14 @@ import { useState } from "react";
 const Tables = () => {
 
   const tables = useSelector(getAllTables);
-  const [newTableId, setNewTableId] = useState(tables.length + 1); 
+  const [newTableId, setNewTableId] = useState(parseInt(tables.length) + 1); 
 
   const dispatch = useDispatch();
 
   const handleAddTable = (event) => {
     event.preventDefault();
     const newTable = {
-      id: newTableId,
+      id: parseInt(newTableId),
       status: "Free",
       peopleAmount: 0,
       maxPeopleAmount: 4,

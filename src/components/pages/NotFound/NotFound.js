@@ -1,18 +1,12 @@
 //import styles from './Card.module.scss';
 //import { removeCard } from '../../redux/store';
 //import { useDispatch } from 'react-redux';
+//import { useParams } from "react-router";
 
-const NotFound = props => {
+const NotFound = () => {
 
-    //const dispatch = useDispatch();
-    
-    const handleClick = (cardId) => {
-      //dispatch({ type: 'REMOVE_CARD', payload: { cardId } });
-      //dispatch(removeCard(cardId));
-    }
-  
     return (
-      <div>Not Found</div>
+      <div>Error 404. Not Found</div>
     );
   };
   

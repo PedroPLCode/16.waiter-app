@@ -8,11 +8,10 @@ import { Link } from 'react-router-dom';
 
 const SingleTableOverview = props => {
 
-  console.log(props.id)
   const singleTableData = useSelector(state => getTableById(state, props.id));
 
-  const [id, setId] = useState(singleTableData[0].id); 
-  const [status, setStatus] = useState(singleTableData[0].status); 
+  const [id, setId] = useState(singleTableData.id); 
+  const [status, setStatus] = useState(singleTableData.status); 
   //const [peopleAmount, setPeopleAmount] = useState(props.peopleAmount); 
   //const [maxPeopleAmount, setMaxPeopleAmount] = useState(props.maxPeopleAmount); 
   //const [bill, setBill] = useState(props.bill); 
@@ -22,9 +21,7 @@ const SingleTableOverview = props => {
   return (
     <li>
       <h4>Table {id} Status {status}</h4>
-      
-      <Link to={`table/${props.id}`}>See More</Link>
-
+      <Link to={`table/${props.id}`}>Show More</Link>
     </li>
   );
 };

@@ -1,32 +1,32 @@
 {
   "tables": [
     {
-      "id": 1,
-      "status": "Busy",
-      "peopleAmount": 2,
-      "maxPeopleAmount": 4,
-      "bill": 20
-    },
-    {
-      "id": 2,
-      "status": "Cleaning",
-      "peopleAmount": 0,
-      "maxPeopleAmount": 3,
-      "bill": 0
+      "id": "2",
+      "status": "Free",
+      "peopleAmount": "24",
+      "maxPeopleAmount": "342",
+      "bill": "04324"
     },
     {
       "id": 3,
+      "status": "Reserved",
+      "peopleAmount": 4445,
+      "maxPeopleAmount": 4,
+      "bill": 32432
+    },
+    {
+      "id": 44,
       "status": "Free",
       "peopleAmount": 0,
       "maxPeopleAmount": 4,
       "bill": 0
     },
     {
-      "id": "7",
+      "id": 1,
       "status": "Free",
-      "peopleAmount": "0",
-      "maxPeopleAmount": "4",
-      "bill": "0"
+      "peopleAmount": 0,
+      "maxPeopleAmount": 4,
+      "bill": 0
     }
   ]
 }

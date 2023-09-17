@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { getTableById, removeTableRequest, editTableRequest } from '../../../redux/tableReducer';
 import { Navigate } from 'react-router-dom';
 
-const SingleTableDetails = () => {
+const SingleTableForm = () => {
 
   const { tableId } = useParams();
   const singleTableData = useSelector(state => getTableById(state, tableId));
@@ -60,4 +60,4 @@ const SingleTableDetails = () => {
   );
 };
 
-export default SingleTableDetails;
+export default SingleTableForm;
