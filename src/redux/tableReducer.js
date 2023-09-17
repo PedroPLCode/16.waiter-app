@@ -2,16 +2,17 @@
 
 //selectors
 export const getAllTables = (state) => state.tables;
+export const getTableById = (state, tableId) => state.tables.filter(table => table.id === tableId);
 
 // actions
 const createActionName = actionName => `app/tables/${actionName}`;
 const REMOVE_TABLE = createActionName("REMOVE_TABLE");
 const ADD_TABLE = createActionName("ADD_TABLE");
-const UPDATE_TABLE = createActionName("UPDATE_TABLE");
+const UPDATE_TABLES = createActionName("UPDATE_TABLES");
 
 export const addTable = payload => ({ type: ADD_TABLE, payload });
 export const removeTable = payload => ({ type: REMOVE_TABLE, payload });
-export const updateTables = payload => ({ type: UPDATE_TABLE, payload });
+export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
 export const fetchTables = () => {
   return (dispatch) => {
     fetch('http://localhost:3131/api/tables')
@@ -52,7 +53,7 @@ const tablesReducer = (statePart = [], action) => {
       return { ...statePart, tables: [...statePart.tables, { ...action.payload }]};
     case REMOVE_TABLE: 
       return { ...statePart, tables: [...statePart.tables.filter(table => action.payload !== table.id)]};
-    case UPDATE_TABLE:
+    case UPDATE_TABLES:
       return { ...statePart, tables: action.payload};
     default:
       return statePart;

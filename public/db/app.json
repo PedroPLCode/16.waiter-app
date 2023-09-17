@@ -41,6 +41,27 @@
       "peopleAmount": "0",
       "maxPeopleAmount": "4",
       "bill": "0"
+    },
+    {
+      "id": "7",
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "4",
+      "bill": "0"
+    },
+    {
+      "id": "8",
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "4",
+      "bill": "0"
+    },
+    {
+      "id": "9",
+      "status": "Free",
+      "peopleAmount": "0",
+      "maxPeopleAmount": "4",
+      "bill": "0"
     }
   ]
 }

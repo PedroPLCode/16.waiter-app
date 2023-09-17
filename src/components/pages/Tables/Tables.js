@@ -10,7 +10,6 @@ const Tables = () => {
 
   const dispatch = useDispatch();
   const tables = useSelector(getAllTables);
-  console.log(tables);
 
   const handleAddTable = (event) => {
     event.preventDefault();
@@ -21,9 +20,7 @@ const Tables = () => {
       maxPeopleAmount: "4",
       bill: "0"
     };
-    //dispatch({ type: 'ADD_TABLE', payload: { newTable } });
     dispatch(addTableRequest(newTable));
-    //dispatch(addTable(newTable));
   }
 
     return (
