@@ -3,36 +3,37 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
-import { removeTable, updateTables, getTableById } from '../../../redux/tableReducer';
+import { updateTables, getTableById, removeTableRequest } from '../../../redux/tableReducer';
+//import { Navigate } from 'react-router-dom';
 
 const SingleTableDetails = () => {
 
   const { tableId } = useParams();
-  const singleTable = useSelector(state => getTableById(state, tableId.toString()));
-  console.log(tableId.toString(), singleTable)
+  const singleTableData = useSelector(state => getTableById(state, parseInt(tableId)));
 
-  const [id, setId] = useState(singleTable[0].id); 
-  const [status, setStatus] = useState(singleTable[0].status); 
-  const [peopleAmount, setPeopleAmount] = useState(singleTable[0].peopleAmount); 
-  const [maxPeopleAmount, setMaxPeopleAmount] = useState(singleTable[0].maxPeopleAmount); 
-  const [bill, setBill] = useState(singleTable[0].bill); 
+  console.log(tableId)
+
+  const [id, setId] = useState(singleTableData[0].id); 
+  const [status, setStatus] = useState(singleTableData[0].status); 
+  const [peopleAmount, setPeopleAmount] = useState(singleTableData[0].peopleAmount); 
+  const [maxPeopleAmount, setMaxPeopleAmount] = useState(singleTableData[0].maxPeopleAmount); 
+  const [bill, setBill] = useState(singleTableData[0].bill); 
 
   const dispatch = useDispatch();
 
-  const handleUpdateTable = (event) => {
+  const handleUpdateTable = event => {
     event.preventDefault();
     console.log(event);
     dispatch({ type: 'UPDATE_TABLE', payload: {  } });
     dispatch(updateTables( { id, status, peopleAmount, maxPeopleAmount, bill }));
   }
 
-  const handleRemoveTable = (event, tableId) => {
+  const handleRemoveTable = event => {
     event.preventDefault();
-    console.log(tableId);
-    dispatch({ type: 'REMOVE_TABLE', payload: { tableId } });
-    dispatch(removeTable(tableId));
+    dispatch(removeTableRequest(tableId));
   }
 
+  //if(!singleTableData[0]) return <Navigate to="/" />
   return (
     <div>
       <h4>Table {id}</h4>
