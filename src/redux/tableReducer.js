@@ -13,6 +13,7 @@ export const addTable = payload => ({ type: ADD_TABLE, payload });
 export const removeTable = payload => ({ type: REMOVE_TABLE, payload });
 export const updateTables = payload => ({ type: UPDATE_TABLES, payload });
 export const editTable = payload => ({ type: EDIT_TABLE, payload });
+
 export const fetchTables = () => {
   return (dispatch) => {
     fetch(`${API_URL}/tables`)
@@ -20,6 +21,7 @@ export const fetchTables = () => {
       .then(tables => dispatch(updateTables(tables)));
   }
 };
+
 export const addTableRequest = newTable => {
   return (dispatch) => {
     const options = {
@@ -33,6 +35,7 @@ export const addTableRequest = newTable => {
       .then(() => dispatch(addTable(newTable)))
   }
 };
+
 export const removeTableRequest = tableId => {
   return (dispatch) => {
     const options = {
@@ -45,6 +48,7 @@ export const removeTableRequest = tableId => {
       .then(() => dispatch(removeTable(tableId)))
   }
 };
+
 export const editTableRequest = (thisTable) => {
   return (dispatch) => {
     const options = {
@@ -54,7 +58,6 @@ export const editTableRequest = (thisTable) => {
       },
       body: JSON.stringify(thisTable),
     };
-
     fetch(`${API_URL}/tables/${thisTable.id}`, options).then(() =>
       dispatch(editTable(thisTable))
     );

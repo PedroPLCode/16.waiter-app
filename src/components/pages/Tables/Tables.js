@@ -1,16 +1,16 @@
 import SingleTableOverview from "../SingleTableOverview/SingleTableOverview";
-import { getAllTables } from "../../../redux/tableReducer";
-import { useSelector } from 'react-redux';
 import TableForm from "../TableForm/TableForm";
 import Spinner from 'react-bootstrap/Spinner';
+import { getAllTables } from "../../../redux/tableReducer";
+import { useSelector } from 'react-redux';
 
-const Tables = (props) => {
+const Tables = () => {
 
   const tables = useSelector(getAllTables);
 
   if (!tables.length) {
     return (
-      <div className="d-flex align-items-center justify-content-center">
+      <div className="mt-5 mb-5 d-flex align-items-center justify-content-center">
         <Spinner />
       </div>
     );

@@ -17,7 +17,7 @@ const SingleTableDetails = () => {
         <h4 className='mt-4'>Table {tableId}</h4>
         <SingleTableForm />
       </div>
-          );
+    );
   }
 };
 

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
-    <Navbar bg="primary" variant="dark" sticky="top" className="rounded mb-4">
+    <Navbar bg="primary" variant="dark" sticky="top" className="rounded mb-3">
       <Container>
         <Navbar.Brand href="/">Waiter App</Navbar.Brand>
         <Nav className="justify-content-end">

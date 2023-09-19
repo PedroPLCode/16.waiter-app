@@ -1,13 +1,8 @@
-import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
+import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import initialState from './initialState';
 import tableReducer from './tableReducer';
 
-//const subreducers = {
-//  tables: tableReducer,
-//}
-
-//const reducer = combineReducers(subreducers);
 const store = createStore(
   tableReducer,
   initialState,

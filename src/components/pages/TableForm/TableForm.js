@@ -1,6 +1,5 @@
 import { addTableRequest, getAllTables } from "../../../redux/tableReducer";
-import { useSelector } from 'react-redux';
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { Button } from "react-bootstrap";
 
@@ -37,11 +36,14 @@ const TableForm = () => {
   }
 
   return (
-    <div className="col-12 mt-5 mb-5 d-flex flex-row justify-content-center align-items-center gap-2">
+    <div className="col-12 d-flex flex-column justify-content-center align-items-center gap-2">
+      <h4 className="mt-4">Add New Table</h4>
+      <div className="col-12 mb-5 d-flex flex-row justify-content-center align-items-center gap-2"> 
       <input className="col-1" value={newTableId} placeholder="New Table..." onChange={event => setNewTableId(event.target.value)}></input>
       <Button className="col-1 " onClick={event => handleAddTable(event)} variant="primary">
         Add Table
       </Button>
+      </div>
     </div>
   );
 };

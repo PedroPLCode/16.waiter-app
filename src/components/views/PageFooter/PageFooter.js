@@ -1,17 +1,15 @@
 import React from 'react';
-import { MDBFooter, MDBContainer, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBFooter, MDBContainer } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 
 const PageFooter = () => {
 
   return (
-    <MDBFooter className='bg-primary text-center text-white mt-3'>
+    <MDBFooter className='bg-primary text-center text-white mt-2'>
       <MDBContainer className='p-3'>
-        <section>
-          Pedro
-          <MDBBtn outline color="light" floating href='https://github.com/PedroPLCode/' role='button'>
-            <MDBIcon fab icon='github' />
-          </MDBBtn>
-        </section>
+        <Link to='https://github.com/PedroPLCode/' >
+          Pedro GitHub profile
+        </Link>
       </MDBContainer>
     </MDBFooter>
   );
