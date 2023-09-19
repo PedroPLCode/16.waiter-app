@@ -1,6 +1,5 @@
 import Navbar from 'react-bootstrap/Navbar';
-import { Nav } from 'react-bootstrap';
-import { Container } from 'react-bootstrap';
+import { Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {

@@ -1,21 +1,17 @@
-//import styles from './List.module.scss';
-import SingleTableOverview from "../SingleTableOverview/SingleTableOverview";
-import SingleTableDetails from "../SingleTableDetails/SingleTableDetails";
-import { addTable, addTableRequest, getAllTables, fetchTables, updateTables } from "../../../redux/tableReducer";
+import { addTableRequest, getAllTables } from "../../../redux/tableReducer";
 import { useSelector } from 'react-redux';
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-//import shortid from 'shortid';
 
 const TableForm = () => {
 
-  const tables = useSelector(getAllTables);
-  const [newTableId, setNewTableId] = useState(parseInt(tables.length) + 1); 
-
   const dispatch = useDispatch();
+  const tables = useSelector(getAllTables);
+  const [newTableId, setNewTableId] = useState(""); 
+  let tableUnique = true;
 
-  const handleAddTable = (event) => {
+  const handleAddTable = event => {
     event.preventDefault();
     const newTable = {
       id: parseInt(newTableId),
@@ -24,17 +20,30 @@ const TableForm = () => {
       maxPeopleAmount: 4,
       bill: 0
     };
-    dispatch(addTableRequest(newTable));
+    if (newTable.id >= 10) {
+      alert('WE HAVE ONLY 10 TABLES');
+      tableUnique = false;
+    }
+    for (let table of tables) {
+      if (table.id === newTable.id) {
+          alert('THIS TABLE ID ALREADY EXISTS');
+          tableUnique = false;
+          break;
+      } 
+    }
+    if (tableUnique) {
+      dispatch(addTableRequest(newTable));
+    }
   }
 
-    return (
-      <div className="col-4 mt-5 mb-5 d-flex flex-row justify-content-end align-items-center gap-2">
-        <input className="col-1" value={newTableId} placeholder="New Table Number..." onChange={event => setNewTableId(event.target.value)}></input>
-        <Button className="col-3" onClick={event => handleAddTable(event)} variant="primary">
-          Add Table
-        </Button>
-      </div>
-    );
-  };
+  return (
+    <div className="col-12 mt-5 mb-5 d-flex flex-row justify-content-center align-items-center gap-2">
+      <input className="col-1" value={newTableId} placeholder="New Table..." onChange={event => setNewTableId(event.target.value)}></input>
+      <Button className="col-1 " onClick={event => handleAddTable(event)} variant="primary">
+        Add Table
+      </Button>
+    </div>
+  );
+};
 
 export default TableForm;

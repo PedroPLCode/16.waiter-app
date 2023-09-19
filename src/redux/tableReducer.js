@@ -1,11 +1,8 @@
 import { API_URL } from "../config.js";
 
-//selectors
 export const getAllTables = state => state.tables;
-//export const getTableById = (state, tableId) => state.tables.filter(table => table.id !== tableId);
 export const getTableById = (state, tableId) => state.tables.find((table) => table.id === tableId);
 
-// actions
 const createActionName = actionName => `app/tables/${actionName}`;
 const REMOVE_TABLE = createActionName("REMOVE_TABLE");
 const ADD_TABLE = createActionName("ADD_TABLE");
@@ -48,23 +45,22 @@ export const removeTableRequest = tableId => {
       .then(() => dispatch(removeTable(tableId)))
   }
 };
-export const editTableRequest = (editedTable) => {
+export const editTableRequest = (thisTable) => {
   return (dispatch) => {
     const options = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(editedTable),
+      body: JSON.stringify(thisTable),
     };
 
-    fetch(`${API_URL}/tables/${editedTable.id}`, options).then(() =>
-      dispatch(editTable(editedTable))
+    fetch(`${API_URL}/tables/${thisTable.id}`, options).then(() =>
+      dispatch(editTable(thisTable))
     );
   };
 };
 
-// action creators
 const tablesReducer = (statePart = [], action) => {
   switch (action.type) {
     case ADD_TABLE: 

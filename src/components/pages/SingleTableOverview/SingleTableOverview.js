@@ -1,9 +1,6 @@
-//import styles from './Card.module.scss';
-//import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-//import { removeTable, updateTables } from '../../../redux/tableReducer';
-import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
-import { getTableById, getAllTables } from '../../../redux/tableReducer';
+import { useSelector } from 'react-redux/es/hooks/useSelector';
+import { getTableById } from '../../../redux/tableReducer';
 import { Link } from 'react-router-dom';
 import { Col, Row, Button } from "react-bootstrap";
 import PropTypes from "prop-types";
@@ -11,20 +8,21 @@ import PropTypes from "prop-types";
 const SingleTableOverview = props => {
 
   const singleTableData = useSelector(state => getTableById(state, props.id));
-
   const [id] = useState(singleTableData.id); 
   const [status] = useState(singleTableData.status); 
 
   return (
-    <li className="col-12">
-      <Row className="d-flex align-items-center justify-content-start mb-2">
-        <Col className="col-4">
-          <h4>Table {id}</h4>
+    <li className="mb-2 col-12 d-flex align-items-center justify-content-center">
+      <Row className="col-12 d-flex align-items-between justify-content-between mb-2">
+        <Col className="col-9 d-flex flex-row align-items-center justify-content-start">
+          <Col className="col-2">
+            <h4>Table {id}</h4>
+          </Col>
+          <Col className="col-2 d-flex flex-row align-items-center justify-content-center">
+            <h5>{status}</h5>
+          </Col>
         </Col>
-        <Col className="col-4 d-flex flex-row align-items-center justify-content-center">
-          <h5>{status}</h5>
-        </Col>
-        <Col className="col-4">
+        <Col className="col-3 d-flex flex-row align-items-center justify-content-end">
           <Link to={`/table/${props.id}`}>
             <Button variant="primary">
               See More
@@ -35,6 +33,10 @@ const SingleTableOverview = props => {
       
     </li>
   );
+};
+
+SingleTableOverview.propTypes = {
+  id: PropTypes.number.isRequired,
 };
 
 export default SingleTableOverview;
