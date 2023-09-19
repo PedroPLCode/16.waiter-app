@@ -25,10 +25,11 @@ const Tables = () => {
                 id={table.id}
                 status={table.status} />
                 )}
-                </ul>
+        </ul>
         <TableForm /> 
         </div>
-    ); }
-  };
+    ); 
+  }
+};
 
 export default Tables;

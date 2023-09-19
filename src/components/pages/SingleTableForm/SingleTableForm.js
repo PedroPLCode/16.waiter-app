@@ -45,26 +45,17 @@ const SingleTableForm = () => {
     setMaxPeopleAmount(10);
     setPeopleAmount(0);
   };
-  if (maxPeopleAmount < 0) {
-    setMaxPeopleAmount(0);
-    setPeopleAmount(0);
-  };
   if (peopleAmount > maxPeopleAmount) {
     setPeopleAmount(maxPeopleAmount);
   };
-  if (peopleAmount < 0) {
-    setPeopleAmount(0);
-  };
-  if (maxPeopleAmount === "") {
+  if (maxPeopleAmount < 0 || maxPeopleAmount === "") {
     setMaxPeopleAmount(0);
-  };
-  if (peopleAmount === "") {
     setPeopleAmount(0);
   };
-  if (bill < 0) {
-    setBill(0);
+  if (peopleAmount < 0 || peopleAmount === "") {
+    setPeopleAmount(0);
   };
-  if (bill === "") {
+  if (bill < 0 || bill === "") {
     setBill(0);
   };
  

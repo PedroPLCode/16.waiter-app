@@ -25,7 +25,7 @@ const TableForm = () => {
     }
     for (let table of tables) {
       if (table.id === newTable.id) {
-          alert('THIS TABLE ID ALREADY EXISTS');
+          alert(`TABLE ${newTable.id} ALREADY EXISTS`);
           tableUnique = false;
           break;
       } 
@@ -40,7 +40,7 @@ const TableForm = () => {
       <h4 className="mt-4">Add New Table</h4>
       <div className="col-12 mb-5 d-flex flex-row justify-content-center align-items-center gap-2"> 
       <input className="col-1" value={newTableId} placeholder="New Table..." onChange={event => setNewTableId(event.target.value)}></input>
-      <Button className="col-1 " onClick={event => handleAddTable(event)} variant="primary">
+      <Button className="col-1 btn btn-sm" onClick={event => handleAddTable(event)} variant="primary">
         Add Table
       </Button>
       </div>
