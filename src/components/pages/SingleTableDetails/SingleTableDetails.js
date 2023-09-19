@@ -17,7 +17,7 @@ const SingleTableDetails = () => {
       <div className="col-12 d-flex flex-column justify-content-center aling-items-center">
         <div className="col-8 d-flex flex-row justify-content-start aling-items-start">
           <h4 className='col-2 mt-4'>Table {tableId}</h4>
-          <Link className='col-3 d-flex flex-row justify-content-start align-items-start' to={`/`}>
+          <Link className='col-3 d-flex flex-row justify-content-start align-items-start' to="/">
             <Button className='col-4 mt-4' variant="secondary">
               Back
             </Button>

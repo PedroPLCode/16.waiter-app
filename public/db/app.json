@@ -23,20 +23,27 @@
     },
     {
       "id": 4,
-      "status": "Cleaning",
+      "status": "Busy",
+      "peopleAmount": 0,
+      "maxPeopleAmount": 0,
+      "bill": 445
+    },
+    {
+      "id": 5,
+      "status": "Free",
       "peopleAmount": 0,
       "maxPeopleAmount": 0,
       "bill": 0
     },
     {
-      "id": 5,
+      "id": 6,
       "status": "Free",
       "peopleAmount": 0,
       "maxPeopleAmount": 4,
       "bill": 0
     },
     {
-      "id": 6,
+      "id": 7,
       "status": "Free",
       "peopleAmount": 0,
       "maxPeopleAmount": 4,
