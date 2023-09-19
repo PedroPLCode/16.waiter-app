@@ -1,8 +1,9 @@
 import { useParams } from 'react-router';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { getTableById } from '../../../redux/tableReducer';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Link } from 'react-router-dom';
 import SingleTableForm from '../SingleTableForm/SingleTableForm';
+import { Button } from 'react-bootstrap';
 
 const SingleTableDetails = () => {
 
@@ -14,7 +15,14 @@ const SingleTableDetails = () => {
   } else {
     return (
       <div className="col-12 d-flex flex-column justify-content-center aling-items-center">
-        <h4 className='mt-4'>Table {tableId}</h4>
+        <div className="col-8 d-flex flex-row justify-content-start aling-items-start">
+          <h4 className='col-2 mt-4'>Table {tableId}</h4>
+          <Link className='col-3 d-flex flex-row justify-content-start align-items-start' to={`/`}>
+            <Button className='col-4 mt-4' variant="secondary">
+              Back
+            </Button>
+          </Link>
+        </div>
         <SingleTableForm />
       </div>
     );

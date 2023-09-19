@@ -8,7 +8,7 @@ const TableForm = () => {
   const dispatch = useDispatch();
   const tables = useSelector(getAllTables);
   const [newTableId, setNewTableId] = useState(""); 
-  let tableUnique = true;
+  let tableOKtoAdd = true;
 
   const handleAddTable = event => {
     event.preventDefault();
@@ -21,18 +21,18 @@ const TableForm = () => {
     };
     if (newTable.id >= 10) {
       alert('WE HAVE ONLY 10 TABLES');
-      tableUnique = false;
-    }
+      tableOKtoAdd = false;
+    };
     for (let table of tables) {
       if (table.id === newTable.id) {
           alert(`TABLE ${newTable.id} ALREADY EXISTS`);
-          tableUnique = false;
+          tableOKtoAdd = false;
           break;
       } 
     }
-    if (tableUnique) {
+    if (tableOKtoAdd) {
       dispatch(addTableRequest(newTable));
-    }
+    };
   }
 
   return (

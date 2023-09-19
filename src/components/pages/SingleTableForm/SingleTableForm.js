@@ -71,10 +71,10 @@ const SingleTableForm = () => {
             <option value="Cleaning" onClick={event => setStatus(event.target.value)} >Cleaning</option>
           </select>
         </Row>
-        <Row className='col-12  mt-3 gap-2'>
+        <Row className='col-12 mt-3 gap-2'>
           <strong>People</strong><input className='col-1' value={peopleAmount} placeholder='Table peopleAmount...' onChange={event => setPeopleAmount(event.target.value)}></input> / <input className='col-1' value={maxPeopleAmount} placeholder='Table ImaxPeopleAmount...' onChange={event => setMaxPeopleAmount(event.target.value)}></input>
         </Row>
-        <Row className='col-12  mt-3 gap-2'>
+        <Row className='col-12 mt-3 gap-2'>
           <strong>Bill $</strong><input className='col-3' value={bill} placeholder='Table bill...' onChange={event => setBill(event.target.value)}></input>
         </Row>
         <Row className='col-12 mt-3 gap-2'>
@@ -98,7 +98,7 @@ const SingleTableForm = () => {
               <option value="Cleaning" onClick={event => setStatus(event.target.value)} >Cleaning</option>
             </select>
           </Row>
-          <Row className='col-12  mt-3 gap-2'>
+          <Row className='col-12 mt-3 gap-2'>
               <strong>People</strong><input className='col-1' value={peopleAmount} placeholder='Table peopleAmount...' onChange={event => setPeopleAmount(event.target.value)}></input> / <input className='col-1' value={maxPeopleAmount} placeholder='Table ImaxPeopleAmount...' onChange={event => setMaxPeopleAmount(event.target.value)}></input>
           </Row>
           <Row className='col-12 mt-3 gap-2'>

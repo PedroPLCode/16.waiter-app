@@ -30,7 +30,6 @@ const SingleTableOverview = props => {
           </Link>
         </Col>
       </Row>
-      
     </li>
   );
 };

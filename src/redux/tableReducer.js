@@ -45,7 +45,7 @@ export const removeTableRequest = tableId => {
       },
     };
     fetch(`${API_URL}/tables/${tableId.toString()}`, options)
-      .then(() => dispatch(removeTable(tableId)))
+      .then(() => dispatch(removeTable(tableId)));
   }
 };
 
@@ -58,9 +58,8 @@ export const editTableRequest = (thisTable) => {
       },
       body: JSON.stringify(thisTable),
     };
-    fetch(`${API_URL}/tables/${thisTable.id}`, options).then(() =>
-      dispatch(editTable(thisTable))
-    );
+    fetch(`${API_URL}/tables/${thisTable.id}`, options)
+      .then(() => dispatch(editTable(thisTable)));
   };
 };
 
