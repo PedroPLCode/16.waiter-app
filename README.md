@@ -1,3 +1,1 @@
-Kodilla
-module 16
-Waiter App
+https://16waiter-app-1.pedroplcode.repl.co/
