@@ -5,23 +5,34 @@ import { useState } from 'react';
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { getTableById, getAllTables } from '../../../redux/tableReducer';
 import { Link } from 'react-router-dom';
+import { Col, Row, Button } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 const SingleTableOverview = props => {
 
   const singleTableData = useSelector(state => getTableById(state, props.id));
 
-  const [id, setId] = useState(singleTableData.id); 
-  const [status, setStatus] = useState(singleTableData.status); 
-  //const [peopleAmount, setPeopleAmount] = useState(props.peopleAmount); 
-  //const [maxPeopleAmount, setMaxPeopleAmount] = useState(props.maxPeopleAmount); 
-  //const [bill, setBill] = useState(props.bill); 
-
-  //const dispatch = useDispatch();
+  const [id] = useState(singleTableData.id); 
+  const [status] = useState(singleTableData.status); 
 
   return (
-    <li>
-      <h4>Table {id} Status {status}</h4>
-      <Link to={`table/${props.id}`}>Show More</Link>
+    <li className="col-12">
+      <Row className="d-flex align-items-center justify-content-start mb-2">
+        <Col className="col-4">
+          <h4>Table {id}</h4>
+        </Col>
+        <Col className="col-4 d-flex flex-row align-items-center justify-content-center">
+          <h5>{status}</h5>
+        </Col>
+        <Col className="col-4">
+          <Link to={`/table/${props.id}`}>
+            <Button variant="primary">
+              See More
+            </Button>
+          </Link>
+        </Col>
+      </Row>
+      
     </li>
   );
 };

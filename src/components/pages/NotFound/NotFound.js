@@ -6,7 +6,10 @@
 const NotFound = () => {
 
     return (
-      <div>Error 404. Not Found</div>
+      <div>
+        <h4>Error 404</h4>
+        <p>Page not Found</p>
+      </div>
     );
   };
   
