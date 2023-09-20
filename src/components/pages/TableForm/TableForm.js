@@ -2,10 +2,12 @@ import { addTableRequest, getAllTables } from "../../../redux/tableReducer";
 import { useSelector, useDispatch } from 'react-redux';
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router";
 
 const TableForm = () => {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const tables = useSelector(getAllTables);
   const [newTableId, setNewTableId] = useState(""); 
   let tableOKtoAdd = true;
@@ -29,9 +31,10 @@ const TableForm = () => {
           tableOKtoAdd = false;
           break;
       } 
-    }
+    };
     if (tableOKtoAdd) {
       dispatch(addTableRequest(newTable));
+      navigate("/");
     };
   }
 

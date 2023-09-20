@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { removeTableRequest, editTableRequest } from '../../../redux/tableReducer';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { getTableById } from '../../../redux/tableReducer';
 
 const SingleTableForm = () => {
 
+  const navigate = useNavigate();
   const { tableId } = useParams();
   const singleTableData = useSelector(state => getTableById(state, parseInt(tableId)));
   const dispatch = useDispatch();
@@ -15,7 +17,7 @@ const SingleTableForm = () => {
   const [status, setStatus] = useState(singleTableData.status); 
   const [peopleAmount, setPeopleAmount] = useState(singleTableData.peopleAmount); 
   const [maxPeopleAmount, setMaxPeopleAmount] = useState(singleTableData.maxPeopleAmount); 
-  const [bill, setBill] = useState(singleTableData.bill); 
+  const [bill, setBill] = useState(singleTableData.bill);
 
   const handleEditTable = event => {
     event.preventDefault();
@@ -33,12 +35,14 @@ const SingleTableForm = () => {
       thisTable.peopleAmount = 0;
       thisTable.maxPeopleAmount = 0;
     };
-    dispatch(editTableRequest(thisTable))
-  }
+    dispatch(editTableRequest(thisTable));
+    navigate("/");
+  };
 
   const handleRemoveTable = event => {
     event.preventDefault();
     dispatch(removeTableRequest(id));
+    navigate("/");
   };
 
   if (maxPeopleAmount > 10) {
