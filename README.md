@@ -1,1 +1,1 @@
-https://16waiter-app-1.pedroplcode.repl.co/
+https://16waiter-app.pedroplcode.repl.co/
