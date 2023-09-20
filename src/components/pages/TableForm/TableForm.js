@@ -34,7 +34,7 @@ const TableForm = () => {
     };
     if (tableOKtoAdd) {
       dispatch(addTableRequest(newTable));
-      navigate("/");
+      navigate(`/table/${newTable.id}`);
     };
   }
 
