@@ -10,8 +10,10 @@ const Tables = () => {
 
   if (!tables.length) {
     return (
-      <div className="mt-5 mb-5 d-flex align-items-center justify-content-center">
+      <div className="d-flex flex-column align-items-center justify-content-center">
+        <h4 className="mt-4">All Tables List</h4>
         <Spinner />
+        <TableForm /> 
       </div>
     );
   } else {
