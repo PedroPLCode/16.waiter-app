@@ -29,7 +29,7 @@ const Tables = () => {
                 )}
         </ul>
         <TableForm /> 
-        </div>
+      </div>
     ); 
   }
 };
