@@ -3,6 +3,7 @@ import { Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
+  
   return (
     <Navbar bg="primary" variant="dark" sticky="top" className="rounded mb-3">
       <Container>
