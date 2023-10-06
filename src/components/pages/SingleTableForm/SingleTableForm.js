@@ -36,13 +36,13 @@ const SingleTableForm = () => {
       thisTable.maxPeopleAmount = 0;
     };
     dispatch(editTableRequest(thisTable));
-    navigate("/");
+    navigate('/'); // -1
   };
 
   const handleRemoveTable = event => {
     event.preventDefault();
     dispatch(removeTableRequest(id));
-    navigate("/");
+    navigate('/'); // -1
   };
 
   if (maxPeopleAmount > 10) {

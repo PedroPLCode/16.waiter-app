@@ -49,7 +49,7 @@ export const removeTableRequest = tableId => {
   }
 };
 
-export const editTableRequest = (thisTable) => {
+export const editTableRequest = thisTable => {
   return (dispatch) => {
     const options = {
       method: "PUT",
